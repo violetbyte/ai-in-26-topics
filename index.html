@@ -1,0 +1,286 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI in 26 Topics</title><meta name="description" content="Artificial intelligence in plain language: a climb through 26 topics.">
+<script>try{var t=localStorage.getItem("aiaz-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+:root{--bg:#F5F8FC;--ink:#0F2A4A;--acc:#2F6FDE;--mut:#4A5F7A;--onacc:#FFFFFF;--line:color-mix(in srgb,var(--ink) 20%,var(--bg));--card:color-mix(in srgb,var(--ink) 5%,var(--bg))}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1626;--ink:#E6EEF8;--acc:#6AA0F5;--mut:#9FB3CC;--onacc:#0B1626}}
+:root[data-theme=dark]{--bg:#0B1626;--ink:#E6EEF8;--acc:#6AA0F5;--mut:#9FB3CC;--onacc:#0B1626}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+main,header.top{max-width:680px;margin:0 auto;padding:1rem}
+header.top{display:flex;justify-content:space-between;align-items:center}
+a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+h1,h2{font-weight:700;line-height:1.2}
+.mut{color:var(--mut)}
+button,.btn{font:600 1rem system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:.6rem 1rem;cursor:pointer;min-height:44px}
+button.alt{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+button[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:inset 0 0 0 3px var(--acc)}
+input[type=search],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:.6rem .8rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.6rem;list-style:none;padding:0}
+.tile{display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1;border-radius:14px;padding:.5rem .6rem;text-decoration:none;color:var(--ink);border:1px solid var(--line)}
+.tile b{font-size:2rem;font-weight:700;line-height:1}
+.tile span{font-size:.75rem;line-height:1.2}
+.tile.done{outline:2px solid var(--ink);outline-offset:-4px}
+.lv1{background:color-mix(in srgb,var(--acc) 10%,var(--bg))}.lv2{background:color-mix(in srgb,var(--acc) 22%,var(--bg))}
+.lv3{background:color-mix(in srgb,var(--acc) 36%,var(--bg))}.lv4{background:color-mix(in srgb,var(--acc) 52%,var(--bg))}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:0;list-style:none;font-size:.9rem}
+.legend i{display:inline-block;width:1em;height:1em;border-radius:4px;border:1px solid var(--line);vertical-align:-.15em;margin-right:.4em}
+.head{display:flex;gap:1rem;align-items:center}
+.big{flex:none;width:96px;height:96px;border-radius:20px;background:var(--acc);color:var(--onacc);font-size:3.5rem;font-weight:700;display:grid;place-items:center}
+.lvl{margin:0;font-size:.9rem;color:var(--mut)}
+.head h1{margin:0}
+.analogy{border-left:6px solid var(--acc);padding:.2rem 1rem;background:var(--card);border-radius:0 10px 10px 0}
+.card{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:1rem;margin:1.5rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0}
+.chip{padding:2px 6px;border-radius:6px;color:var(--ink);font-family:ui-monospace,monospace;font-size:.9rem;white-space:pre}
+.bar{display:grid;grid-template-columns:5.5rem 1fr 3.2rem;gap:.5rem;align-items:center;font-size:.95rem}
+.bar div{height:14px;border-radius:4px;background:var(--acc);transition:width .2s}
+@media(prefers-reduced-motion:reduce){.bar div{transition:none}}
+.stats{display:flex;gap:1.5rem;flex-wrap:wrap}
+nav.pn{display:flex;justify-content:space-between;gap:1rem;margin:2rem 0}
+h3{font-size:1.5rem;font-weight:700;line-height:1.2;margin:.2rem 0}h4{font-size:1.1rem;margin:1.2rem 0 .3rem}
+.level{margin-top:3.5rem;font-size:1.8rem}.topic{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+#mtn{width:100%;height:auto;display:block}#mtn a{cursor:pointer}
+.back{font-size:.9rem}
+footer{max-width:680px;margin:2rem auto 0;padding:1rem 1rem 2rem;border-top:1px solid var(--line)}
+
+</style></head><body>
+<header class="top"><strong>AI in 26 Topics</strong><button id="theme" class="alt" type="button">Light or dark</button></header>
+<noscript><p style="padding:1rem">This site needs JavaScript to show the mountain and topics.</p></noscript>
+<main><h1>AI in 26 Topics</h1>
+<p>Artificial intelligence in plain language. Climb from the basics to the summit, or jump to any stop. Nothing is locked.</p>
+<svg id="mtn" viewBox="0 0 600 400" role="group" aria-label="Mountain trail with 26 numbered stops, one per topic"></svg>
+<p id="prog" class="mut" aria-live="polite"></p>
+<ul class="legend" id="legend"></ul><div id="out"></div></main>
+<footer><h2 style="font-size:1.2rem">About</h2><p>Hi, I'm Ishika Singh, a second-year BTech computer science student. I built this site to explain AI in plain language, one topic at a time.</p><p class="mut">&copy; 2026 Ishika Singh.</p></footer>
+<script>
+/* ==== topics.js ==== */
+window.LEVELS=["Basics","How models work","Using AI","Risks and trust"];
+window.TOPICS=[
+{k:"N",t:"Neural network",lv:1,star:1,d:"Layers of simple units whose connections are adjusted during training."},
+{k:"W",t:"Weights",lv:1,d:"The numbers a model learns."},
+{k:"U",t:"Unsupervised and self-supervised learning",lv:1,d:"Learning from data without hand-written labels."},
+{k:"L",t:"LLM",lv:1,d:"A large neural network trained to predict the next token."},
+{k:"T",t:"Tokens and temperature",lv:1,star:1,d:"How text is cut into pieces and how randomness is set."},
+{k:"K",t:"Knowledge cutoff",lv:1,d:"Why a model does not know recent events."},
+{k:"I",t:"Inference",lv:1,d:"Running a trained model to get an answer."},
+{k:"A",t:"Attention",lv:2,star:1,d:"Which earlier words matter for the current one."},
+{k:"C",t:"Context window",lv:2,star:1,d:"How much text a model can consider at once."},
+{k:"E",t:"Embeddings",lv:2,star:1,d:"Meaning as numbers, placed on a map."},
+{k:"D",t:"Diffusion",lv:2,d:"Generating images by removing noise."},
+{k:"M",t:"Multimodal",lv:2,d:"Models that handle text, images and audio."},
+{k:"Q",t:"Quantization",lv:2,d:"Storing model numbers at lower precision."},
+{k:"Y",t:"YOLO and object detection",lv:2,d:"Finding and labeling objects in images."},
+{k:"P",t:"Prompting",lv:3,star:1,d:"Writing instructions that get a useful result."},
+{k:"Z",t:"Zero-shot and few-shot",lv:3,d:"Asking with no examples or with a few."},
+{k:"J",t:"JSON and structured output",lv:3,d:"Answers in a format software can read."},
+{k:"R",t:"RAG",lv:3,star:1,d:"Search first, then answer from what was found."},
+{k:"V",t:"Vector databases",lv:3,d:"Storage built to find similar items fast."},
+{k:"F",t:"Fine-tuning",lv:3,d:"When to prompt, retrieve or train further."},
+{k:"H",t:"Hallucination",lv:4,star:1,d:"Fluent output that is not true."},
+{k:"B",t:"Bias",lv:4,d:"How skewed data produces skewed behavior."},
+{k:"O",t:"Overfitting",lv:4,star:1,d:"Memorizing noise instead of the pattern."},
+{k:"G",t:"Guardrails",lv:4,d:"Rules and checks around a model."},
+{k:"S",t:"Safety and alignment",lv:4,d:"Making models behave as intended."},
+{k:"X",t:"Explainability (XAI)",lv:4,d:"Understanding why a model gave an output."}];
+window.PAGES={T:{
+p:["A language model does not read letters or whole words. It reads <strong>tokens</strong>: chunks of text such as a short word, part of a long word, or a punctuation mark. A common method for choosing the chunks is byte-pair encoding. Limits and prices in AI tools are counted in tokens, not words.",
+"To write, the model scores every possible next token, then converts the scores to probabilities with <strong>softmax</strong>. <strong>Temperature</strong> divides the scores before softmax. A low value makes the top choice dominate. A high value flattens the odds, so unlikely tokens get picked more often.",
+"Temperature changes randomness, not intelligence."],
+a:"A hat full of word slips. Good words have many copies. Low temperature removes almost all the unlikely slips. High temperature adds copies of the unlikely ones until the hat is nearly even.",
+r:["Models work on tokens, not words.","Softmax turns scores into probabilities that add up to 100%.","Lower temperature means more predictable output. Higher means more varied."],
+s:[["Sennrich et al., Neural Machine Translation of Rare Words with Subword Units (2016)","https://arxiv.org/abs/1508.07909"],["Anthropic API reference: Messages (temperature parameter)","https://docs.anthropic.com/en/api/messages"]]}};
+
+/* ==== content1.js ==== */
+Object.assign(PAGES,{
+N:{p:["A <strong>neural network</strong> is a program built from many simple units arranged in layers. Each unit takes numbers in, multiplies each by a stored value, adds them up, and passes the result on.","On its own one unit does almost nothing. Stacked in layers, thousands or billions of them can learn patterns such as which words tend to follow which.","Learning means adjusting the stored values to reduce mistakes on training examples. The standard method is backpropagation combined with gradient descent."],a:"A huge mixing desk with millions of dials. Training is turning the dials, a little at a time, until the output sounds right.",r:["A neural network is many simple units in layers.","It learns by adjusting stored numbers to reduce errors.","Scale is what makes simple units powerful."],s:[["Nielsen, Neural Networks and Deep Learning (free online book)","http://neuralnetworksanddeeplearning.com"],["Rumelhart, Hinton and Williams, Learning representations by back-propagating errors (1986)","https://doi.org/10.1038/323533a0"]]},
+W:{p:["<strong>Weights</strong> are the numbers on the connections between units. A large weight means one unit's output strongly affects the next. A small one means it barely matters.","Weights start out random and are set by training. When people say a model has billions of <strong>parameters</strong>, they mostly mean billions of weights (plus a smaller number of related values called biases).","A trained model is essentially its weights plus the code that runs them. Releasing the weights is what \"open-weight\" means."],a:"A recipe where the ingredients are fixed but the amounts are not. Training finds the amounts that make the dish come out right.",r:["Weights are the learned numbers inside a model.","Parameters are weights and biases.","The model you download or call is mostly its weights."],s:[["Nielsen, Chapter 1: Using neural nets to recognize handwritten digits","http://neuralnetworksanddeeplearning.com/chap1.html"]]},
+U:{p:["<strong>Supervised</strong> learning needs examples with labels, such as photos marked \"cat\" or \"dog\". Labels are slow and expensive to produce.","<strong>Unsupervised</strong> learning finds structure with no labels at all, for example grouping similar customers. <strong>Self-supervised</strong> learning creates its own labels from the data: hide a word and ask the model to predict it.","Self-supervised learning is how language models are pretrained. The text supplies both the question and the answer, so the amount of usable data is enormous."],a:"A student who learns a language by covering up words in books and guessing them. No teacher marks the answers, because the book already has them.",r:["Supervised learning needs labels. The other two do not.","Self-supervised learning makes labels from the data itself.","This is why language models can train on huge amounts of raw text."],s:[["Devlin et al., BERT (2018), masked word prediction","https://arxiv.org/abs/1810.04805"],["Brown et al., Language Models are Few-Shot Learners (2020)","https://arxiv.org/abs/2005.14165"]]},
+L:{p:["A <strong>large language model (LLM)</strong> is a neural network, usually a transformer, trained on very large amounts of text to predict the next token. \"Large\" refers to the number of weights and the amount of training data.","To write an answer it predicts one token, adds it to the text, and predicts again. Everything it writes comes from this repeated step.","After the first stage of training, most chat models are trained further to follow instructions and be helpful, often using human feedback."],a:"Autocomplete on your phone, scaled up enormously and trained on far more text, so it can continue a whole essay and not only a word.",r:["An LLM predicts the next token, over and over.","Size means many weights and a lot of training text.","Chat models get extra training to follow instructions."],s:[["Brown et al., Language Models are Few-Shot Learners (2020)","https://arxiv.org/abs/2005.14165"],["Ouyang et al., Training language models to follow instructions with human feedback (2022)","https://arxiv.org/abs/2203.02155"]]},
+K:{p:["A model learns from data collected up to a certain date, called its <strong>knowledge cutoff</strong>. After that date it has seen nothing, so it cannot know about later events, products or prices unless you give them to it.","Models can also be unsure of their own cutoff, and the last months before it are usually thinly covered in the training data.","The fix is to supply current information in the prompt, through web search or your own documents. The RAG topic covers this."],a:"A printed encyclopedia. It is accurate up to the print date, and it says nothing about what happened next.",r:["A model knows nothing after its cutoff.","It may be wrong about its own cutoff date.","Provide current facts yourself, or use search."],s:[["Anthropic documentation: models overview (check each model's stated cutoff)","https://docs.anthropic.com/en/docs/about-claude/models"]]},
+I:{p:["<strong>Inference</strong> means running a trained model to get an output. Training is the slow, expensive stage where the weights are set. Inference uses those fixed weights.","When you chat with a model, it is not learning from you in that moment. Its weights do not change. It only uses the text in the conversation as context.","Each generated token takes computation, so longer answers cost more time and money. This is why providers price by tokens."],a:"A trained chef working a dinner service. The cooking skills were learned years ago. Tonight the chef only applies them to new orders.",r:["Training sets the weights. Inference uses them.","A chat does not change the model.","Longer outputs cost more to produce."],s:[["Hugging Face documentation: text generation with LLMs","https://huggingface.co/docs/transformers/llm_tutorial"]]}});
+
+/* ==== content-more.js ==== */
+Object.assign(PAGES,{
+E:{p:["An <strong>embedding</strong> is a list of numbers that represents a piece of text (or an image) so that similar meanings get similar numbers. You can picture each item as a point on a map: \"cat\" lands near \"dog\", far from \"train\".",
+"Real embeddings have hundreds or thousands of numbers per item, not two, but the idea is the same. To search by meaning, you embed the question and look for the closest points. Closeness is measured with a distance or a cosine similarity.",
+"A <strong>vector database</strong> stores many embeddings and finds the nearest ones quickly. At large scale it uses approximate search, which trades a little accuracy for a lot of speed."],
+a:"A city map where similar shops cluster: bakeries together, garages together. To find something like a bakery, you go to the bakery area instead of reading every shop sign.",
+r:["An embedding turns meaning into numbers, so similar things sit close together.","Search by meaning means finding the nearest points to the question.","A vector database is storage built for fast nearest-neighbor search."],
+s:[["Mikolov et al., Efficient Estimation of Word Representations in Vector Space (2013)","https://arxiv.org/abs/1301.3781"]]},
+A:{p:["When a model processes a word, it needs to know which other words matter for it. <strong>Attention</strong> does this by giving every word in the text a weight for the current word. The weights add up to 100%.",
+"Take \"The animal didn't cross the street because it was tired.\" To handle \"it\", the model should weight \"animal\" heavily. Change the last word to \"wide\" and the weight should move to \"street\". The same word looks at different things depending on the rest of the sentence.",
+"The weights are computed from the text itself, by comparing learned numeric representations of the words, then passing the scores through softmax. This is the core idea of the transformer architecture used by modern LLMs."],
+a:"Reading a page with a highlighter. For each word you are about to interpret, you highlight the earlier words that help, some brightly and some faintly.",
+r:["Attention gives each word a set of weights over the other words.","The weights depend on context, so the same word can look at different things.","Transformers, the design behind modern LLMs, are built around attention."],
+s:[["Vaswani et al., Attention Is All You Need (2017)","https://arxiv.org/abs/1706.03762"]]},
+R:{p:["A model only knows what was in its training data, and it cannot read your private documents. <strong>Retrieval-augmented generation (RAG)</strong> fixes this by looking up relevant text at question time and putting it into the prompt.",
+"The steps are: take the question, search a collection of documents (often with embeddings), pick the best passages, then ask the model to answer using those passages.",
+"RAG gives the model current or private facts and lets you show where an answer came from. It does not guarantee a correct answer: if retrieval picks the wrong passage, the answer can still be wrong."],
+a:"An open-book exam. The student does not need to have memorized the textbook, but still has to find the right page and read it correctly.",
+r:["RAG = search first, then answer from what was found.","It helps with current and private information and makes sources visible.","Bad retrieval means bad answers, so the search step matters as much as the model."],
+s:[["Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)","https://arxiv.org/abs/2005.11401"]]}});
+
+/* ==== content2.js ==== */
+Object.assign(PAGES,{
+C:{p:["The <strong>context window</strong> is the maximum amount of text, counted in tokens, that a model can consider at one time. It covers your messages, any documents you paste in, and the model's own reply.","If a conversation grows past the limit, older text has to be cut or summarized, and the model can no longer see it. Sizes differ by model and change often, so check the provider's documentation for current numbers.","A bigger window does not mean the model uses all of it equally well. Research has found that models can use information in the middle of a long input less reliably than information at the start or end."],a:"A desk of fixed size. You can spread out only so many papers, and anything that does not fit goes back in the drawer.",r:["The context window is the model's working space, measured in tokens.","Input and output share it.","Long context helps, but placement still matters."],s:[["Liu et al., Lost in the Middle (2023)","https://arxiv.org/abs/2307.03172"],["Anthropic documentation: context windows","https://docs.anthropic.com/en/docs/build-with-claude/context-windows"]]},
+D:{p:["A <strong>diffusion model</strong> is trained by taking images, adding noise to them step by step, and learning to reverse each step. By the end it is good at removing a little noise from a noisy image.","To generate a picture, it starts from pure random noise and removes noise repeatedly, guided by a text prompt, until an image appears. Many image generators work this way, and the idea is also used for audio and video.","Each run starts from different noise, so the same prompt can give different pictures."],a:"A sculptor who sees a figure in a rough block of stone and chips away a little at a time. Here the block is static, and each step clears some of it.",r:["Diffusion models learn to remove noise.","Generation starts from noise and cleans it up in steps.","A text prompt steers what the picture becomes."],s:[["Ho, Jain and Abbeel, Denoising Diffusion Probabilistic Models (2020)","https://arxiv.org/abs/2006.11239"]]},
+M:{p:["A <strong>multimodal</strong> model works with more than one kind of data, such as text, images and audio. A single model might read a photo and answer a question about it.","The trick is to convert every kind of input into numbers in a shared form, so the model can relate them. For example, the CLIP model was trained to match images with their captions.","Multimodal models can still make mistakes about what they see, such as misreading small text or counting objects."],a:"A translator who speaks several languages and thinks in one inner language. Whatever comes in, it is first turned into that inner language.",r:["Multimodal means more than one data type.","Inputs are converted to numbers in a shared form.","Seeing an image does not guarantee reading it correctly."],s:[["Radford et al., Learning Transferable Visual Models From Natural Language Supervision (CLIP, 2021)","https://arxiv.org/abs/2103.00020"]]},
+Q:{p:["<strong>Quantization</strong> stores a model's weights with fewer bits. A weight kept as a 16-bit number might be stored in 8 or 4 bits instead.","The model then takes less memory and often runs faster, which can let a large model run on cheaper hardware. The cost is some loss of accuracy, and how much depends on the model and the method.","It is a trade-off, not a free gain. Test the quantized model on your own task."],a:"Rounding prices to the nearest rupee. The list gets shorter and easier to carry, but some detail is gone.",r:["Quantization uses fewer bits per weight.","It saves memory and can speed things up.","Accuracy may drop, so test it."],s:[["Dettmers et al., LLM.int8() (2022)","https://arxiv.org/abs/2208.07339"]]},
+Y:{p:["<strong>Object detection</strong> means finding objects in an image and drawing a box and label around each one. <strong>YOLO</strong>, short for \"You Only Look Once\", is a family of detectors that does this in a single pass through a neural network.","Because it is a single pass, YOLO is fast enough for video and real-time uses such as cameras. It was introduced in 2015 and has had many versions since.","This is computer vision, not a language model. It outputs boxes and labels, not text."],a:"A person glancing once at a shelf and instantly pointing out every item and where it sits, without studying each part in turn.",r:["Object detection finds and labels things in an image.","YOLO does it in one pass, so it is fast.","It is a vision model, not an LLM."],s:[["Redmon et al., You Only Look Once (2015)","https://arxiv.org/abs/1506.02640"]]},
+Z:{p:["With <strong>zero-shot</strong> prompting you give an instruction and no examples: \"Classify this review as positive or negative.\"","With <strong>few-shot</strong> prompting you include a small number of examples first, so the model sees the format and style you want. Often two or three good examples are enough.","The model's weights do not change either way. The examples only live in the prompt, so they cost tokens each time."],a:"Asking a new colleague to write a report. Zero-shot is only telling them the topic. Few-shot is also handing them two past reports to copy the style from.",r:["Zero-shot is instruction only. Few-shot adds examples.","Examples show format and style.","Nothing is trained, and the examples use up context."],s:[["Brown et al., Language Models are Few-Shot Learners (2020)","https://arxiv.org/abs/2005.14165"]]},
+J:{p:["<strong>JSON</strong> is a plain-text format for structured data: named fields with values, such as a name, a date and a list of items. Almost every programming language can read it.","If you want software to use a model's answer, ask for JSON that follows a stated structure instead of free text. Many model APIs have features for structured output or tool calls to make this more reliable.","Always check the result. A model can still return invalid JSON or a wrong value, so programs should validate the output."],a:"A form with labeled boxes instead of a handwritten letter. A machine can read the form straight away, but you still check that the boxes are filled in correctly.",r:["JSON is structured text that software can read.","Ask for a defined structure to get predictable output.","Validate every response."],s:[["JSON specification overview","https://www.json.org"],["Anthropic documentation: tool use","https://docs.anthropic.com/en/docs/build-with-claude/tool-use"]]},
+V:{p:["A <strong>vector database</strong> stores embeddings along with the original items and any extra details, and finds the stored items closest to a query embedding.","Comparing a query against every stored item works for a few thousand items but gets slow at millions. Large systems use approximate nearest-neighbor indexes, which return very close matches much faster and may occasionally miss the very best one.","It is the search part of most RAG systems. Libraries such as FAISS provide the same search without a full database."],a:"A library catalog arranged by meaning. Instead of looking up exact titles, you describe what you want and the librarian walks to the right shelf.",r:["A vector database stores embeddings and finds nearest matches.","Approximate search trades a little accuracy for speed.","It powers the retrieval step in RAG."],s:[["Johnson, Douze and Jegou, Billion-scale similarity search with GPUs (FAISS, 2017)","https://arxiv.org/abs/1702.08734"]]},
+P:{p:["A <strong>prompt</strong> is the instruction you give a model. Clear prompts state the task, give the needed background, say who the answer is for, and describe the format you want.","Weak: \"Write about our product.\" Stronger: \"Write a 100-word description of a stainless steel water bottle for office workers, in a friendly tone, ending with one call to action.\"","Prompting is iterative. Run it, read the result, and adjust the prompt. Adding an example of the output you want often helps more than adding more rules."],a:"Briefing a freelancer. The vaguer the brief, the more the result depends on guesswork.",r:["State the task, the background, the audience and the format.","Be specific, and add an example if you can.","Treat the first attempt as a draft and refine it."],s:[["Anthropic documentation: prompt engineering overview","https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"]]},
+F:{p:["<strong>Fine-tuning</strong> means continuing to train a model on your own examples so its behavior changes, for example to match a style or a fixed output format.","A practical order is: first try better prompting, which is cheapest. If the model lacks facts, add retrieval (RAG). Fine-tune when you need consistent behavior at scale that prompting does not deliver.","Methods such as LoRA train a small set of added weights instead of the whole model, which lowers the cost. Fine-tuning is poor at teaching new facts that change often."],a:"Teaching a chef your restaurant's house style. Prompting is giving instructions each night, RAG is handing over the day's recipe book, and fine-tuning is training them until the style is habit.",r:["Fine-tuning changes the model's behavior through extra training.","Try prompting first, then RAG, then fine-tuning.","It suits style and format, not fast-changing facts."],s:[["Hu et al., LoRA: Low-Rank Adaptation of Large Language Models (2021)","https://arxiv.org/abs/2106.09685"]]},
+H:{p:["A <strong>hallucination</strong> is output that sounds fluent and confident but is false or unsupported, such as a made-up quote, a fake reference or a wrong date.","It happens because a language model is built to produce likely text, not to check facts. When it lacks the answer, it can still produce something plausible.","Ways to reduce it: provide source documents (RAG), ask for quotes or citations and verify them, and check anything important yourself. These lower the rate but do not remove it."],a:"A confident storyteller who never says \"I don't know\" and fills gaps in the story with believable details.",r:["Hallucinations are fluent but wrong outputs.","Models predict plausible text and do not verify it.","Verify important claims against real sources."],s:[["Ji et al., Survey of Hallucination in Natural Language Generation (2022)","https://arxiv.org/abs/2202.03629"]]},
+B:{p:["<strong>Bias</strong> in AI means results that are systematically uneven across groups of people. It comes from the training data, from how problems are framed and measured, and from how the system is used.","Documented examples: a 2016 study found that word embeddings trained on news text reproduced gender stereotypes about jobs, and the 2018 Gender Shades study found higher error rates for darker-skinned women in commercial gender-classification systems.","Reducing bias means checking performance separately for different groups, improving the data, and keeping people responsible for important decisions."],a:"A mirror with a warp in the glass. It shows real things, but some shapes come out distorted, and you only notice if you look from different angles.",r:["Bias is uneven behavior learned from data and design.","Test results group by group, not just overall.","It cannot be assumed away, so measure it."],s:[["Bolukbasi et al., Man is to Computer Programmer as Woman is to Homemaker? (2016)","https://arxiv.org/abs/1607.06520"],["Buolamwini and Gebru, Gender Shades (2018)","http://proceedings.mlr.press/v81/buolamwini18a.html"]]},
+O:{p:["<strong>Overfitting</strong> is when a model learns its training examples too closely, including random noise, and then performs worse on new data.","The warning sign is a big gap: very good scores on training data, much lower scores on data the model has not seen. This is why data is split, and a test set is kept aside and used only to check.","Common remedies: more data, a simpler model, regularization, and stopping training early."],a:"A student who memorizes last year's exam answers. They score perfectly on that paper and fail a new one.",r:["Overfitting means memorizing noise instead of the pattern.","Compare training scores with scores on unseen data.","More data or a simpler model usually helps."],s:[["Nielsen, Chapter 3: Improving the way neural networks learn","http://neuralnetworksanddeeplearning.com/chap3.html"]]},
+G:{p:["<strong>Guardrails</strong> are checks placed around a model to keep its use safe and on topic. Examples: filtering what goes in, checking what comes out, limiting which tools the model can use, and requiring human approval for risky actions.","No single guardrail is perfect. A known risk is prompt injection, where text in a web page or document tries to give the model new instructions.","Good design layers several guardrails and limits what a mistake could do."],a:"Lane markings, speed limits and a barrier on a mountain road. None of them guarantees safety, and together they make a bad turn less costly.",r:["Guardrails are checks around the model, not inside it.","Layer several, because each one can fail.","Limit what the model is allowed to do."],s:[["OWASP Top 10 for Large Language Model Applications","https://owasp.org/www-project-top-10-for-large-language-model-applications/"]]},
+S:{p:["<strong>Alignment</strong> is the work of making AI systems do what people actually intend, and avoid harmful behavior. <strong>Safety</strong> is the wider effort to reduce the risks of AI systems.","One common method is reinforcement learning from human feedback (RLHF): people rank model answers, and the model is trained to prefer the ranked-higher ones. Another, Constitutional AI, has the model critique and revise its answers against a written set of principles.","These methods improve behavior but do not solve the problem fully, and research is still active."],a:"Training a new driver. Lessons and feedback shape good habits, but you still add rules, checks and supervision.",r:["Alignment aims to make models do what people intend.","RLHF and Constitutional AI are two training methods.","They help, and they are not a complete solution."],s:[["Ouyang et al., Training language models to follow instructions with human feedback (2022)","https://arxiv.org/abs/2203.02155"],["Bai et al., Constitutional AI (2022)","https://arxiv.org/abs/2212.08073"]]},
+X:{p:["<strong>Explainability</strong> (XAI) is about understanding why a model gave a particular output. It matters when decisions affect people, such as lending or medical support.","It is hard because a model's weights are not readable by humans. Techniques such as LIME approximate the model's behavior around one prediction with a simpler model, showing which inputs mattered most.","Be careful with explanations a model writes about itself. They sound reasonable but may not describe what actually drove the answer."],a:"Asking an expert why they decided. You get a story, and you still need a way to check it against what they actually looked at.",r:["Explainability asks why a model produced an output.","Tools like LIME show which inputs mattered.","A model's own explanation may not be the real reason."],s:[["Ribeiro, Singh and Guestrin, Why Should I Trust You? (LIME, 2016)","https://arxiv.org/abs/1602.04938"]]}});
+
+/* ==== app.js ==== */
+(function(){var r=document.documentElement,K="aiaz-";
+function g(k){try{return localStorage.getItem(K+k)}catch(e){return null}}
+function s(k,v){try{localStorage.setItem(K+k,v)}catch(e){}}
+var t=g("theme");if(t)r.dataset.theme=t;
+window.AZ={get:g,set:s,done:function(){try{return JSON.parse(g("done")||"[]")}catch(e){return[]}},
+toggleTheme:function(){var d=r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");d=d=="dark"?"light":"dark";r.dataset.theme=d;s("theme",d)}};
+document.addEventListener("click",function(e){if(e.target.closest("#theme"))AZ.toggleTheme()});})();
+
+/* ==== demo-tokens.js ==== */
+window.DEMOS=window.DEMOS||{};
+DEMOS.T=function(el){
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="tx">Type some text</label><textarea id="tx" rows="2">Tokenization splits unusual words into pieces.</textarea>'
++'<div id="ch" class="chips" aria-live="polite"></div><p id="st" class="stats mut"></p>'
++'<p class="mut">Simplified: this splitter cuts words into pieces of up to 5 characters. Real tokenizers learn their pieces from data, so real counts differ.</p><hr>'
++'<label for="tp">Temperature: <strong id="tv">1.0</strong></label><input id="tp" type="range" min="0.1" max="2" step="0.1" value="1" style="width:100%">'
++'<p>The cat sat on the ___ <span class="mut">(illustrative scores, not from a real model)</span></p><div id="pb"></div>'
++'<p><button id="pk" type="button">Pick a word</button> <span id="rc" class="mut"></span></p>';
+var $=function(i){return el.querySelector("#"+i)},cols=["10","22","36","52"];
+function tok(){var v=$("tx").value,ps=v.match(/\s?[A-Za-z0-9]+|\s?[^\sA-Za-z0-9]/g)||[],out=[];
+ps.forEach(function(w){var lead=/^\s/.test(w)?" ":"",c=w.trim();if(/^[A-Za-z0-9]+$/.test(c)){for(var i=0;i<c.length;i+=5){out.push((i?"":lead)+c.slice(i,i+5))}}else out.push(w)});
+$("ch").innerHTML=out.map(function(w,i){return'<span class="chip" style="background:color-mix(in srgb,var(--acc) '+cols[i%4]+'%,var(--bg))">'+w.replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</span>'}).join("");
+$("st").innerHTML='<span>Tokens: <strong>'+out.length+'</strong></span><span>Words: <strong>'+(v.trim()?v.trim().split(/\s+/).length:0)+'</strong></span><span>Characters: <strong>'+v.length+'</strong></span>'}
+var W=[["mat",4],["sofa",3.2],["roof",2.4],["moon",1.2],["piano",.8],["volcano",-.5]],P=[],rec=[];
+function sm(T){var e=W.map(function(w){return Math.exp(w[1]/T)}),z=e.reduce(function(a,b){return a+b});return e.map(function(x){return x/z})}
+function bars(){var T=+$("tp").value;$("tv").textContent=T.toFixed(1);P=sm(T);
+$("pb").innerHTML=W.map(function(w,i){return'<div class="bar"><span>'+w[0]+'</span><div style="width:'+(P[i]*100)+'%;min-width:2px"></div><span>'+(P[i]*100).toFixed(1)+'%</span></div>'}).join("")}
+$("pk").onclick=function(){var r=Math.random(),a=0,k=0;for(;k<P.length-1;k++){a+=P[k];if(r<a)break}rec.unshift(W[k][0]);rec=rec.slice(0,8);$("rc").textContent="Recent: "+rec.join(", ")};
+$("tx").oninput=tok;$("tp").oninput=bars;tok();bars()};
+
+/* ==== demo-more.js ==== */
+window.DEMOS=window.DEMOS||{};
+DEMOS.E=function(el){var P={cat:[18,20],dog:[26,28],horse:[14,34],fox:[32,15],apple:[70,22],bread:[78,32],rice:[64,35],soup:[82,16],car:[20,72],bus:[32,80],train:[14,84],bike:[36,66]},sel="cat",ks=Object.keys(P);
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Pick a word. Its three nearest neighbors on the map are outlined.</p><div id="bt" class="chips"></div><svg viewBox="0 0 100 100" role="img" aria-label="Map of 12 words in three clusters" style="width:100%;max-width:420px;border:1px solid var(--line);border-radius:10px"></svg><p id="nn" aria-live="polite"></p><p class="mut">Simplified: these 2D positions are made up. Real embeddings have hundreds of dimensions.</p>';
+var bt=el.querySelector("#bt"),sv=el.querySelector("svg"),nn=el.querySelector("#nn");
+function go(){var d=ks.filter(function(k){return k!=sel}).sort(function(a,b){return dist(a)-dist(b)}).slice(0,3);
+function dist(k){return Math.hypot(P[k][0]-P[sel][0],P[k][1]-P[sel][1])}
+bt.innerHTML=ks.map(function(k){return'<button type="button" class="alt" aria-pressed="'+(k==sel)+'" data-w="'+k+'">'+k+'</button>'}).join("");
+sv.innerHTML=ks.map(function(k){var n=d.indexOf(k)>-1,s=k==sel;return'<circle cx="'+P[k][0]+'" cy="'+P[k][1]+'" r="'+(s?3.5:2.5)+'" fill="'+(s?'var(--ink)':'var(--acc)')+'" stroke="var(--ink)" stroke-width="'+(n?1:0.2)+'"/><text x="'+P[k][0]+'" y="'+(P[k][1]-4.5)+'" font-size="4.5" text-anchor="middle" fill="var(--ink)">'+k+'</text>'}).join("");
+nn.innerHTML='Nearest to <strong>'+sel+'</strong>: '+d.join(", ")}
+bt.onclick=function(e){var k=e.target.dataset&&e.target.dataset.w;if(k){sel=k;go();bt.querySelector('[data-w="'+k+'"]').focus()}};go()};
+DEMOS.A=function(el){var W="The animal didn't cross the street because it was".split(" "),V={tired:[.02,.55,.03,.04,.02,.16,.03,.05,.03,.07],wide:[.02,.16,.03,.04,.02,.55,.03,.05,.03,.07]},v="tired";
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Attention from the word <strong>it</strong>. Darker means more weight. Change the last word.</p><p><button type="button" class="alt" data-v="tired" aria-pressed="true">&hellip;was tired</button> <button type="button" class="alt" data-v="wide" aria-pressed="false">&hellip;was wide</button></p><div id="ws" class="chips" aria-live="polite"></div><p class="mut">Simplified: these weights are made up to show the idea. A real model computes them from its learned numbers.</p>';
+var ws=el.querySelector("#ws");
+function go(){var w=V[v],a=W.concat([v]);ws.innerHTML=a.map(function(x,i){var p=i<10?w[i]:0;return'<span class="chip" style="background:color-mix(in srgb,var(--acc) '+Math.round(p/.55*52)+'%,var(--bg));text-align:center">'+x+'<br><small>'+(i<10?Math.round(p*100)+'%':'')+'</small></span>'}).join("");
+el.querySelectorAll("[data-v]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v==v)})}
+el.addEventListener("click",function(e){var k=e.target.dataset&&e.target.dataset.v;if(k){v=k;go()}});go()};
+DEMOS.R=function(el){var D=["The Riverside Library opens at 9 am on weekdays and closes at 6 pm.","Library cards are free for residents and expire after two years.","Late books cost 10 rupees per day, up to a maximum of 200 rupees."],Q=["When does the library open?","Do library cards cost anything?","What is the late fee for books?"],q=0,st=0,SW="the a is do does what when for of at on and to up per".split(" ");
+function tk(s){return s.toLowerCase().replace(/[^a-z ]/g,"").split(" ").filter(function(w){return w&&SW.indexOf(w)<0}).map(function(w){return w.replace(/s$/,"")})}
+function sc(i){var a=tk(Q[q]),b=tk(D[i]);return a.filter(function(w){return b.indexOf(w)>-1}).length}
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="rq">Question</label><select id="rq" style="font:inherit;width:100%;padding:.5rem">'+Q.map(function(x,i){return'<option value="'+i+'">'+x+'</option>'}).join("")+'</select><p><button type="button" id="nx">Next step</button> <button type="button" class="alt" id="rs">Start over</button></p><div id="rb" aria-live="polite"></div><p class="mut">Simplified: the library and its rules are made up, search is plain keyword matching, and the answer repeats the passage. A real system uses embeddings for search and an LLM to write the answer.</p>';
+var rb=el.querySelector("#rb");
+function go(){var b=sc(0),best=0,h="";[0,1,2].forEach(function(i){if(sc(i)>sc(best))best=i});
+h+='<p><strong>1. Question:</strong> '+Q[q]+'</p>';
+if(st>0)h+='<p><strong>2. Search:</strong> match scores, '+D.map(function(d,i){return'document '+(i+1)+': '+sc(i)}).join("; ")+'</p>';
+if(st>1)h+='<p><strong>3. Retrieved:</strong> document '+(best+1)+', &ldquo;'+D[best]+'&rdquo;</p>';
+if(st>2)h+='<p><strong>4. Answer:</strong> According to document '+(best+1)+': '+D[best]+'</p>';
+rb.innerHTML=h;el.querySelector("#nx").disabled=st>2}
+el.querySelector("#nx").onclick=function(){st++;go()};el.querySelector("#rs").onclick=function(){st=0;go()};
+el.querySelector("#rq").onchange=function(e){q=+e.target.value;st=0;go()};go()};
+DEMOS.H=function(el){var R=[
+{a:"The paper \"Attention Is All You Need\" was first posted in 2017.",b:"The paper \"Attention Is All You Need\" was first posted in 2012.",f:"b",s:["arXiv listing for the paper","https://arxiv.org/abs/1706.03762"]},
+{a:"Python was created by James Gosling.",b:"Python was created by Guido van Rossum.",f:"a",s:["Python documentation: history and license","https://docs.python.org/3/license.html"]},
+{a:"The GPT-3 paper describes a model with 175 billion parameters.",b:"The GPT-3 paper describes a model with 17 billion parameters.",f:"b",s:["arXiv listing for the GPT-3 paper","https://arxiv.org/abs/2005.14165"]},
+{a:"Alan Turing described the imitation game in a 1965 paper.",b:"Alan Turing described the imitation game in a 1950 paper.",f:"a",s:["Turing, Computing Machinery and Intelligence (Mind, 1950)","https://doi.org/10.1093/mind/LIX.236.433"]},
+{a:"The Hubble Space Telescope was launched in 1990.",b:"The Hubble Space Telescope was launched in 1985.",f:"b",s:["NASA: Hubble Space Telescope","https://science.nasa.gov/mission/hubble/"]}],i=0,sc=0;
+function show(){if(i>=R.length){el.innerHTML='<h2 style="margin-top:0">Done</h2><p>You spotted '+sc+' of '+R.length+' made-up statements.</p><p>Both sentences in every pair were written to sound equally confident. A model that hallucinates sounds the same, so check a source.</p><p><button type="button" id="hr">Play again</button></p>';el.querySelector("#hr").onclick=function(){i=0;sc=0;show()};return}
+var r=R[i],bs='style="display:block;width:100%;text-align:left;margin:.4rem 0"';
+el.innerHTML='<h2 style="margin-top:0">Spot the made-up fact</h2><p class="mut">Round '+(i+1)+' of '+R.length+'. One statement in each pair is false. Pick the made-up one.</p><button type="button" class="alt" data-p="a" '+bs+'>'+r.a+'</button><button type="button" class="alt" data-p="b" '+bs+'>'+r.b+'</button><div id="hf" aria-live="polite"></div><p class="mut">The false statements were written for this exercise. Each true statement links to its source.</p>'}
+el.addEventListener("click",function(e){var p=e.target.dataset&&e.target.dataset.p;if(p&&i<R.length){var r=R[i],ok=p==r.f;if(ok)sc++;el.querySelectorAll("[data-p]").forEach(function(b){b.disabled=true});
+el.querySelector("#hf").innerHTML='<p><strong>'+(ok?"Correct.":"Not quite.")+'</strong> The made-up one is: '+r[r.f]+' The true one is backed by <a href="'+r.s[1]+'">'+r.s[0]+'</a>.</p><p><button type="button" id="hn">'+(i==R.length-1?"See result":"Next round")+'</button></p>';
+el.querySelector("#hn").onclick=function(){i++;show()}}});
+show()};
+
+/* ==== demo-last.js ==== */
+window.DEMOS=window.DEMOS||{};
+DEMOS.C=function(el){var L=100,it=[],n=0;
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Pretend this model can hold 100 tokens. Add items and watch the bar.</p><p><button type="button" data-s="10">Short message (10)</button> <button type="button" data-s="25">Long message (25)</button> <button type="button" data-s="45">Pasted document (45)</button> <button type="button" class="alt" data-s="0">Reset</button></p><div style="height:18px;border:1px solid var(--line);border-radius:6px;overflow:hidden"><div id="cf" style="height:100%;background:var(--acc)"></div></div><p id="ct" aria-live="polite"></p><ul id="cl"></ul><p class="mut">Simplified: 100 tokens is far smaller than a real window, and real systems may shorten old text instead of dropping it.</p>';
+function go(){var u=0,cut=false,v=[];for(var k=it.length-1;k>=0;k--){if(!cut&&u+it[k].s<=L){u+=it[k].s;v[k]=1}else{cut=true;v[k]=0}}
+el.querySelector("#cf").style.width=u+"%";el.querySelector("#ct").textContent=u+" of "+L+" tokens in view";
+el.querySelector("#cl").innerHTML=it.map(function(x,k){return'<li>Item '+x.n+' ('+x.s+' tokens): '+(v[k]?'in view':'<span class="mut">dropped, the model can no longer see it</span>')+'</li>'}).reverse().join("")}
+el.addEventListener("click",function(e){var s=e.target.dataset&&e.target.dataset.s;if(s===undefined)return;s=+s;if(!s){it=[];n=0}else it.push({s:s,n:++n});go()});go()};
+DEMOS.N=function(el){var X=[[0,0,0],[0,1,1],[1,0,1],[1,1,1]],w,r;function rs(){w=[0,0,0];r=0}rs();
+function o(x){return w[0]*x[0]+w[1]*x[1]+w[2]>0?1:0}
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>One tiny unit learns the rule &ldquo;1 if either input is 1&rdquo;. Press the button and watch the numbers change.</p><table style="border-collapse:collapse;width:100%"><thead><tr><th align="left">Input 1</th><th align="left">Input 2</th><th align="left">Wanted</th><th align="left">Unit says</th></tr></thead><tbody id="nb"></tbody></table><p id="nw" aria-live="polite"></p><p><button type="button" id="ns">Train one round</button> <button type="button" class="alt" id="nr">Reset</button></p><p class="mut">Simplified: a real network has many units in layers and uses backpropagation. This one unit uses an older, simpler update rule.</p>';
+function go(){var c=0;el.querySelector("#nb").innerHTML=X.map(function(e){var y=o(e),ok=y==e[2];if(ok)c++;return'<tr><td>'+e[0]+'</td><td>'+e[1]+'</td><td>'+e[2]+'</td><td>'+y+(ok?' (right)':' (wrong)')+'</td></tr>'}).join("");
+el.querySelector("#nw").innerHTML='Round '+r+'. Weights: '+w[0].toFixed(1)+' and '+w[1].toFixed(1)+', bias '+w[2].toFixed(1)+'. <strong>'+c+' of 4 right.</strong>'+(c==4?' It has learned the rule.':'')}
+el.querySelector("#ns").onclick=function(){X.forEach(function(e){var er=e[2]-o(e);w[0]+=.5*er*e[0];w[1]+=.5*er*e[1];w[2]+=.5*er});r++;go()};
+el.querySelector("#nr").onclick=function(){rs();go()};go()};
+DEMOS.P=function(el){var V={weak:{p:"Write about a water bottle.",o:"A water bottle is a container used to carry water. Water bottles come in many shapes and sizes and can be made from plastic, metal or glass. They are useful for staying hydrated."},strong:{p:"Write a product description of about 40 words for a stainless steel water bottle. Audience: office workers. Tone: friendly. End with one call to action.",o:"Keep your desk drink cold through the afternoon meeting marathon. This stainless steel bottle holds a full day's water, fits standard cup holders, and won't leak in your bag. Fill it once in the morning, and sip all day. Order yours today."}},v="weak";
+el.innerHTML='<h2 style="margin-top:0">Same task, two prompts</h2><p><button type="button" class="alt" data-v="weak" aria-pressed="true">Weak prompt</button> <button type="button" class="alt" data-v="strong" aria-pressed="false">Strong prompt</button></p><p><strong>Prompt:</strong> <span id="pp"></span></p><p><strong>Example result:</strong> <span id="po"></span></p><p id="pn" class="mut"></p><p class="mut">Simplified: these results were written by hand to show the difference. A real model&rsquo;s output varies, and the product is invented.</p>';
+function go(){el.querySelector("#pp").textContent=V[v].p;el.querySelector("#po").textContent=V[v].o;el.querySelector("#pn").textContent=v=="strong"?"What the strong prompt added: a length, an audience, a tone, and how to end.":"The weak prompt leaves the length, audience and purpose to guesswork.";el.querySelectorAll("[data-v]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v==v)})}
+el.addEventListener("click",function(e){var k=e.target.dataset&&e.target.dataset.v;if(k){v=k;go()}});go()};
+DEMOS.O=function(el){var f=function(x){return Math.sin(2*Math.PI*x)},nz=[.2,-.3,.25,-.15,.3,-.25,.15,-.3,.2,-.1],nt=[-.2,.15,-.25,.2,-.1,.25,-.2,.1,-.15],tr=nz.map(function(e,i){var x=.05+.1*i;return[x,f(x)+e]}),te=nt.map(function(e,i){var x=.1*(i+1);return[x,f(x)+e]});
+function fit(d){var m=d+1,A=[],b=[],j,k,i;for(j=0;j<m;j++){A[j]=[];b[j]=0;for(k=0;k<m;k++)A[j][k]=0}
+tr.forEach(function(p){var u=p[0]-.5;for(j=0;j<m;j++){b[j]+=p[1]*Math.pow(u,j);for(k=0;k<m;k++)A[j][k]+=Math.pow(u,j+k)}});
+for(i=0;i<m;i++){var pv=i;for(j=i+1;j<m;j++)if(Math.abs(A[j][i])>Math.abs(A[pv][i]))pv=j;var t=A[i];A[i]=A[pv];A[pv]=t;t=b[i];b[i]=b[pv];b[pv]=t;
+for(j=i+1;j<m;j++){var q=A[j][i]/A[i][i];for(k=i;k<m;k++)A[j][k]-=q*A[i][k];b[j]-=q*b[i]}}
+var c=[];for(i=m-1;i>=0;i--){var s=b[i];for(k=i+1;k<m;k++)s-=A[i][k]*c[k];c[i]=s/A[i][i]}
+return function(x){var u=x-.5,s=0;for(i=0;i<m;i++)s+=c[i]*Math.pow(u,i);return s}}
+function mse(g,P){return P.reduce(function(a,p){return a+Math.pow(g(p[0])-p[1],2)},0)/P.length}
+el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="od">Model flexibility (polynomial degree): <strong id="ov">3</strong></label><input id="od" type="range" min="1" max="9" step="1" value="3" style="width:100%"><svg viewBox="0 0 100 60" role="img" aria-label="Noisy points with a fitted curve" style="width:100%;border:1px solid var(--line);border-radius:10px"></svg><p id="oe" aria-live="polite"></p><p class="mut">Filled dots are training data. Hollow dots are new data the model never saw. Both sets are made up: a wave plus random noise.</p>';
+function X(x){return 5+x*90}function Y(y){return 30-Math.max(-2.2,Math.min(2.2,y))*12}
+function go(){var d=+el.querySelector("#od").value,g=fit(d),s="",i,pts=[];el.querySelector("#ov").textContent=d;
+for(i=0;i<=60;i++){var x=i/60;pts.push(X(x).toFixed(1)+","+Y(g(x)).toFixed(1))}
+s+='<polyline points="'+pts.join(" ")+'" fill="none" stroke="var(--acc)" stroke-width="1.5"/>';
+tr.forEach(function(p){s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="1.6" fill="var(--ink)"/>'});
+te.forEach(function(p){s+='<circle cx="'+X(p[0])+'" cy="'+Y(p[1])+'" r="1.6" fill="none" stroke="var(--ink)" stroke-width=".6"/>'});
+el.querySelector("svg").innerHTML=s;
+el.querySelector("#oe").innerHTML='Error on training data: <strong>'+mse(g,tr).toFixed(3)+'</strong>. Error on new data: <strong>'+mse(g,te).toFixed(3)+'</strong>.'}
+el.querySelector("#od").oninput=go;go()};
+
+</script>
+
+<script>
+var T=TOPICS,N=T.length,out=document.getElementById("out"),ends=[],cn={};
+T.forEach(function(x,i){if(!T[i+1]||T[i+1].lv!=x.lv)ends.push(i)});
+document.getElementById("legend").innerHTML=LEVELS.map(function(n,i){return'<li><i class="lv'+(i+1)+'"></i>Level '+(i+1)+': '+n+'</li>'}).join("");
+var rows=[7,6,5,4,3,1],ys=[350,296,242,188,134,60],P=[];rows.forEach(function(n,r){var hw=.8286*(ys[r]-30)*.8;for(var k=0;k<n;k++){var t=n==1?.5:k/(n-1);if(r%2)t=1-t;P.push([300-hw+2*hw*t,ys[r]])}});
+function pt(i){return P[i]}
+var pct=[10,22,36,52];
+function mtn(){var d=AZ.done(),c=T.findIndex(function(x){return d.indexOf(x.k)<0}),s='<polygon points="20,385 300,30 580,385" fill="color-mix(in srgb,var(--acc) 12%,var(--bg))" stroke="var(--line)" stroke-width="2"/><polyline fill="none" stroke="var(--mut)" stroke-width="2" stroke-dasharray="4 4" points="'+T.map(function(x,i){return pt(i).join(",")}).join(" ")+'"/>';
+if(c>-1)s+='<circle cx="'+pt(c)[0]+'" cy="'+pt(c)[1]+'" r="19" fill="var(--acc)" stroke="var(--ink)" stroke-width="2"/>';
+ends.forEach(function(i){var p=pt(i);s+='<path d="M'+p[0]+' '+(p[1]-14)+'v-30l18 7-18 7" fill="var(--acc)" stroke="var(--ink)" stroke-width="2"/>'});
+T.forEach(function(x,i){var p=pt(i),f=d.indexOf(x.k)>-1;s+='<a href="#t-'+i+'" aria-label="Stop '+(i+1)+': '+x.t+(f?' (finished)':'')+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="13" fill="'+(f?'var(--ink)':'color-mix(in srgb,var(--acc) '+pct[x.lv-1]+'%,var(--bg))')+'" stroke="var(--ink)" stroke-width="1.5"/><text x="'+p[0]+'" y="'+(p[1]+5)+'" font-size="14" font-weight="700" text-anchor="middle" fill="'+(f?'var(--bg)':'var(--ink)')+'">'+(i+1)+'</text></a>'});
+document.getElementById("mtn").innerHTML=s;
+document.getElementById("prog").textContent=d.length>=N?"You reached the summit: all 26 topics finished.":"Finished "+d.length+" of "+N+(c>-1?". Next stop on the trail: "+(c+1)+", "+T[c].t+".":"")}
+var h="";T.forEach(function(x,i){var p=PAGES[x.k];
+if(i==0||T[i-1].lv!=x.lv)h+='<h2 class="level" id="lv'+x.lv+'">Level '+x.lv+': '+LEVELS[x.lv-1]+'</h2>';
+h+='<section class="topic" id="t-'+i+'"><p class="lvl">Stop '+(i+1)+' of '+N+'</p><h3>'+x.t+'</h3>';
+if(p){h+=p.p.map(function(a){return'<p>'+a+'</p>'}).join('')+'<p class="analogy">'+p.a+'</p>';
+if(window.DEMOS&&DEMOS[x.k])h+='<div class="card" id="demo-'+x.k+'" aria-label="Interactive demo"></div>';else if(x.star)h+='<p class="mut">An interactive demo for this topic is planned.</p>';
+h+='<h4>What to remember</h4><ul>'+p.r.map(function(a){return'<li>'+a+'</li>'}).join('')+'</ul>'}
+else h+='<p>'+x.d+'</p><p class="mut">The full explanation for this stop is coming soon.</p>';
+h+='<p><button type="button" data-fin="'+x.k+'" aria-pressed="false"></button> <a class="back" href="#mtn">Back to the mountain</a></p></section>'});
+out.innerHTML=h;
+T.forEach(function(x){var e=document.getElementById("demo-"+x.k);if(e)DEMOS[x.k](e)});
+function btn(){var d=AZ.done();document.querySelectorAll("button[data-fin]").forEach(function(b){var on=d.indexOf(b.dataset.fin)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"Finished (click to undo)":"Mark as finished"})}
+out.addEventListener("click",function(e){var k=e.target.dataset&&e.target.dataset.fin;if(!k)return;var d=AZ.done(),j=d.indexOf(k);j>-1?d.splice(j,1):d.push(k);AZ.set("done",JSON.stringify(d));btn();mtn()});
+btn();mtn();
+</script></body></html>
