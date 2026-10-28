@@ -18,14 +18,14 @@ Inside the file, the JavaScript is split into labeled blocks (`/* ==== name.js =
 
 ## Mountain and progress
 
-The mountain is an SVG drawn by JavaScript. The 26 stops sit on six rows that narrow toward the summit, and four flags mark the end of each level. "Mark as finished" saves the topic's key in the browser's localStorage and the mountain redraws, moving the climber to the next unfinished stop. Progress never leaves the visitor's browser. Nothing is locked, and visitors can jump to any stop.
+The mountain is an SVG drawn by JavaScript. The 26 stops sit on a hand-placed winding trail (the list `P` in the last script) drawn through a ridgeline. A flag marks the end of each of the four camps, which are the four levels, and a pin marks the next unfinished stop. "Mark as finished" saves the topic's key in the browser's localStorage and the mountain redraws, moving the climber to the next unfinished stop. Progress never leaves the visitor's browser. Nothing is locked, and visitors can jump to any stop.
 
 ## How to add or edit a topic
 
 1. Add or change its entry in the `TOPICS` list. The order in the list is the order on the trail.
 2. Add or edit its text under the same key (`p` for paragraphs, `a` for the analogy, `r` for the three points).
 3. To give it a demo, write `DEMOS.KEY = function(el){...}`. The page calls it automatically and gives it a card to draw into.
-4. If the number of stops changes, update the row sizes (`rows`) in the last script so the trail still fits.
+4. If the number of stops changes, add or remove points in the list `P` and update the camp ends so the trail still fits.
 
 ## How each demo works
 
@@ -47,5 +47,5 @@ Put `index.html` in a folder and drag the folder to Netlify Drop, or upload it t
 
 ## What I decided and checked
 
-- I chose the topic list, the four levels, the mountain-trail layout, the colors and the site name.
+- I chose the topic list, the four levels, the mountain-trail layout, the paper-and-ink look and the site name.
 - I checked the five true statements in the Hallucination demo against their linked sources.

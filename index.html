@@ -3,59 +3,64 @@
 <title>AI in 26 Topics</title><meta name="description" content="Artificial intelligence in plain language: a climb through 26 topics.">
 <script>try{var t=localStorage.getItem("aiaz-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-:root{--bg:#F5F8FC;--ink:#0F2A4A;--acc:#2F6FDE;--mut:#4A5F7A;--onacc:#FFFFFF;--line:color-mix(in srgb,var(--ink) 20%,var(--bg));--card:color-mix(in srgb,var(--ink) 5%,var(--bg))}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0B1626;--ink:#E6EEF8;--acc:#6AA0F5;--mut:#9FB3CC;--onacc:#0B1626}}
-:root[data-theme=dark]{--bg:#0B1626;--ink:#E6EEF8;--acc:#6AA0F5;--mut:#9FB3CC;--onacc:#0B1626}
+:root{--bg:#FAF6EE;--ink:#1B1A17;--acc:#D9482B;--acctext:#B33A20;--mut:#6B655A;--line:color-mix(in srgb,var(--ink) 22%,var(--bg));--card:color-mix(in srgb,var(--ink) 4%,var(--bg))}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14120E;--ink:#F0EADB;--acc:#FF7A59;--acctext:#FF8F72;--mut:#A39B8A}}
+:root[data-theme=dark]{--bg:#14120E;--ink:#F0EADB;--acc:#FF7A59;--acctext:#FF8F72;--mut:#A39B8A}
 *{box-sizing:border-box}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
-main,header.top{max-width:680px;margin:0 auto;padding:1rem}
-header.top{display:flex;justify-content:space-between;align-items:center}
-a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-h1,h2{font-weight:700;line-height:1.2}
+h1,h2,h3,.brand{font-family:Georgia,"Times New Roman",serif}
+header.top{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:1rem}
+.brand{font-weight:700;font-size:1.15rem;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 1rem}
+@media(min-width:980px){.wrap{display:grid;grid-template-columns:minmax(320px,420px) minmax(0,680px);gap:4rem;justify-content:center}.sticky{position:sticky;top:1rem}}
+h1{font-size:clamp(2rem,6vw,2.5rem);line-height:1.1;margin:.4rem 0 .6rem}
+h2{font-size:1.4rem;line-height:1.2}
+.lead{margin:0 0 1rem;color:var(--ink)}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:2px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--acctext);outline-offset:3px}
 .mut{color:var(--mut)}
-button,.btn{font:600 1rem system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:10px;padding:.6rem 1rem;cursor:pointer;min-height:44px}
+button,.btn{font:600 .95rem system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--ink);color:var(--bg);border:0;border-radius:3px;padding:.55rem .95rem;cursor:pointer;min-height:44px}
 button.alt{background:none;color:var(--ink);border:1.5px solid var(--ink)}
 button[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:inset 0 0 0 3px var(--acc)}
-input[type=search],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:.6rem .8rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.6rem;list-style:none;padding:0}
-.tile{display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:1;border-radius:14px;padding:.5rem .6rem;text-decoration:none;color:var(--ink);border:1px solid var(--line)}
-.tile b{font-size:2rem;font-weight:700;line-height:1}
-.tile span{font-size:.75rem;line-height:1.2}
-.tile.done{outline:2px solid var(--ink);outline-offset:-4px}
-.lv1{background:color-mix(in srgb,var(--acc) 10%,var(--bg))}.lv2{background:color-mix(in srgb,var(--acc) 22%,var(--bg))}
-.lv3{background:color-mix(in srgb,var(--acc) 36%,var(--bg))}.lv4{background:color-mix(in srgb,var(--acc) 52%,var(--bg))}
-.legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;padding:0;list-style:none;font-size:.9rem}
-.legend i{display:inline-block;width:1em;height:1em;border-radius:4px;border:1px solid var(--line);vertical-align:-.15em;margin-right:.4em}
-.head{display:flex;gap:1rem;align-items:center}
-.big{flex:none;width:96px;height:96px;border-radius:20px;background:var(--acc);color:var(--onacc);font-size:3.5rem;font-weight:700;display:grid;place-items:center}
-.lvl{margin:0;font-size:.9rem;color:var(--mut)}
-.head h1{margin:0}
-.analogy{border-left:6px solid var(--acc);padding:.2rem 1rem;background:var(--card);border-radius:0 10px 10px 0}
-.card{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:1rem;margin:1.5rem 0}
+button:disabled{opacity:.5;cursor:default}
+input[type=search],textarea,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--ink);border-radius:3px;padding:.55rem .75rem}
+.card{border:1px solid var(--ink);background:var(--card);border-radius:3px;padding:1rem;margin:1.5rem 0}
 .chips{display:flex;flex-wrap:wrap;gap:4px;margin:.8rem 0}
-.chip{padding:2px 6px;border-radius:6px;color:var(--ink);font-family:ui-monospace,monospace;font-size:.9rem;white-space:pre}
+.chip{padding:2px 6px;border-radius:3px;color:var(--ink);font-family:ui-monospace,Consolas,monospace;font-size:.9rem;white-space:pre}
 .bar{display:grid;grid-template-columns:5.5rem 1fr 3.2rem;gap:.5rem;align-items:center;font-size:.95rem}
-.bar div{height:14px;border-radius:4px;background:var(--acc);transition:width .2s}
+.bar div{height:14px;border-radius:2px;background:var(--acc);transition:width .2s}
 @media(prefers-reduced-motion:reduce){.bar div{transition:none}}
 .stats{display:flex;gap:1.5rem;flex-wrap:wrap}
-nav.pn{display:flex;justify-content:space-between;gap:1rem;margin:2rem 0}
-h3{font-size:1.5rem;font-weight:700;line-height:1.2;margin:.2rem 0}h4{font-size:1.1rem;margin:1.2rem 0 .3rem}
-.level{margin-top:3.5rem;font-size:1.8rem}.topic{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:.3rem 1rem;padding:0;list-style:none;font-size:.9rem;margin:.6rem 0}
+.legend i{display:inline-block;width:1em;height:1em;border-radius:50%;border:1.5px solid var(--ink);vertical-align:-.15em;margin-right:.4em}
+.lv1{background:color-mix(in srgb,var(--acc) 8%,var(--bg))}.lv2{background:color-mix(in srgb,var(--acc) 18%,var(--bg))}
+.lv3{background:color-mix(in srgb,var(--acc) 30%,var(--bg))}.lv4{background:color-mix(in srgb,var(--acc) 46%,var(--bg))}
 #mtn{width:100%;height:auto;display:block}#mtn a{cursor:pointer}
+.band{border-top:4px solid var(--ink);margin-top:3.5rem;padding-top:.7rem}
+.band h2{font-size:2.2rem;margin:.1rem 0 0}
+.band .lvl{margin:0;font:600 .8rem system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--acctext)}
+.topic{margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.topic .lvl{margin:0;color:var(--mut);font-size:.9rem}
+.big{display:block;font:400 3.2rem/1 Georgia,"Times New Roman",serif;color:var(--acctext)}
+h3{font-size:1.7rem;line-height:1.2;margin:.2rem 0 .8rem}
+h4{font:600 .8rem system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:1.4rem 0 .3rem}
+.analogy{font:italic 1.15rem/1.5 Georgia,"Times New Roman",serif;border-left:3px solid var(--acc);padding:.2rem 0 .2rem 1rem;margin:1.2rem 0}
+.analogy::before{content:"Think of it like this";display:block;font:600 .75rem system-ui,sans-serif;font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--acctext);margin-bottom:.2rem}
 .back{font-size:.9rem}
-footer{max-width:680px;margin:2rem auto 0;padding:1rem 1rem 2rem;border-top:1px solid var(--line)}
+footer{max-width:1200px;margin:3rem auto 0;padding:1.5rem 1rem 2.5rem;border-top:4px solid var(--ink)}
+footer h2{font-size:1.2rem;margin-top:0}footer p{max-width:680px}
 
 </style></head><body>
-<header class="top"><strong>AI in 26 Topics</strong><button id="theme" class="alt" type="button">Light or dark</button></header>
-<noscript><p style="padding:1rem">This site needs JavaScript to show the mountain and topics.</p></noscript>
-<main><h1>AI in 26 Topics</h1>
-<p>Artificial intelligence in plain language. Climb from the basics to the summit, or jump to any stop. Nothing is locked.</p>
+<header class="top"><a class="brand" href="#">AI in 26 Topics</a><button id="theme" class="alt" type="button">Light / dark</button></header>
+<div class="wrap"><aside class="side"><div class="sticky">
+<h1>How AI works, one climb at a time.</h1>
+<p class="lead">I'm Ishika. I made this trail to explain AI in plain language: 26 stops, from the basics to the summit. Take them in order or jump anywhere. Nothing is locked.</p>
 <svg id="mtn" viewBox="0 0 600 400" role="group" aria-label="Mountain trail with 26 numbered stops, one per topic"></svg>
 <p id="prog" class="mut" aria-live="polite"></p>
-<ul class="legend" id="legend"></ul><div id="out"></div></main>
-<footer><h2 style="font-size:1.2rem">About</h2><p>Hi, I'm Ishika Singh, a second-year BTech computer science student. I built this site to explain AI in plain language, one topic at a time.</p><p class="mut">&copy; 2026 Ishika Singh.</p></footer>
+<ul class="legend" id="legend"></ul></div></aside>
+<div class="content" id="out"></div></div>
+<footer><h2>About</h2><p>Hi, I'm Ishika Singh, a second-year BTech computer science student. I built this site to explain AI in plain language, one topic at a time.</p><p class="mut">&copy; 2026 Ishika Singh.</p></footer>
 <script>
 /* ==== topics.js ==== */
 window.LEVELS=["Basics","How models work","Using AI","Risks and trust"];
@@ -155,7 +160,7 @@ document.addEventListener("click",function(e){if(e.target.closest("#theme"))AZ.t
 /* ==== demo-tokens.js ==== */
 window.DEMOS=window.DEMOS||{};
 DEMOS.T=function(el){
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="tx">Type some text</label><textarea id="tx" rows="2">Tokenization splits unusual words into pieces.</textarea>'
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><label for="tx">Type some text</label><textarea id="tx" rows="2">Tokenization splits unusual words into pieces.</textarea>'
 +'<div id="ch" class="chips" aria-live="polite"></div><p id="st" class="stats mut"></p>'
 +'<p class="mut">Simplified: this splitter cuts words into pieces of up to 5 characters. Real tokenizers learn their pieces from data, so real counts differ.</p><hr>'
 +'<label for="tp">Temperature: <strong id="tv">1.0</strong></label><input id="tp" type="range" min="0.1" max="2" step="0.1" value="1" style="width:100%">'
@@ -176,7 +181,7 @@ $("tx").oninput=tok;$("tp").oninput=bars;tok();bars()};
 /* ==== demo-more.js ==== */
 window.DEMOS=window.DEMOS||{};
 DEMOS.E=function(el){var P={cat:[18,20],dog:[26,28],horse:[14,34],fox:[32,15],apple:[70,22],bread:[78,32],rice:[64,35],soup:[82,16],car:[20,72],bus:[32,80],train:[14,84],bike:[36,66]},sel="cat",ks=Object.keys(P);
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Pick a word. Its three nearest neighbors on the map are outlined.</p><div id="bt" class="chips"></div><svg viewBox="0 0 100 100" role="img" aria-label="Map of 12 words in three clusters" style="width:100%;max-width:420px;border:1px solid var(--line);border-radius:10px"></svg><p id="nn" aria-live="polite"></p><p class="mut">Simplified: these 2D positions are made up. Real embeddings have hundreds of dimensions.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><p>Pick a word. Its three nearest neighbors on the map are outlined.</p><div id="bt" class="chips"></div><svg viewBox="0 0 100 100" role="img" aria-label="Map of 12 words in three clusters" style="width:100%;max-width:420px;border:1px solid var(--line);border-radius:10px"></svg><p id="nn" aria-live="polite"></p><p class="mut">Simplified: these 2D positions are made up. Real embeddings have hundreds of dimensions.</p>';
 var bt=el.querySelector("#bt"),sv=el.querySelector("svg"),nn=el.querySelector("#nn");
 function go(){var d=ks.filter(function(k){return k!=sel}).sort(function(a,b){return dist(a)-dist(b)}).slice(0,3);
 function dist(k){return Math.hypot(P[k][0]-P[sel][0],P[k][1]-P[sel][1])}
@@ -185,7 +190,7 @@ sv.innerHTML=ks.map(function(k){var n=d.indexOf(k)>-1,s=k==sel;return'<circle cx
 nn.innerHTML='Nearest to <strong>'+sel+'</strong>: '+d.join(", ")}
 bt.onclick=function(e){var k=e.target.dataset&&e.target.dataset.w;if(k){sel=k;go();bt.querySelector('[data-w="'+k+'"]').focus()}};go()};
 DEMOS.A=function(el){var W="The animal didn't cross the street because it was".split(" "),V={tired:[.02,.55,.03,.04,.02,.16,.03,.05,.03,.07],wide:[.02,.16,.03,.04,.02,.55,.03,.05,.03,.07]},v="tired";
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Attention from the word <strong>it</strong>. Darker means more weight. Change the last word.</p><p><button type="button" class="alt" data-v="tired" aria-pressed="true">&hellip;was tired</button> <button type="button" class="alt" data-v="wide" aria-pressed="false">&hellip;was wide</button></p><div id="ws" class="chips" aria-live="polite"></div><p class="mut">Simplified: these weights are made up to show the idea. A real model computes them from its learned numbers.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><p>Attention from the word <strong>it</strong>. Darker means more weight. Change the last word.</p><p><button type="button" class="alt" data-v="tired" aria-pressed="true">&hellip;was tired</button> <button type="button" class="alt" data-v="wide" aria-pressed="false">&hellip;was wide</button></p><div id="ws" class="chips" aria-live="polite"></div><p class="mut">Simplified: these weights are made up to show the idea. A real model computes them from its learned numbers.</p>';
 var ws=el.querySelector("#ws");
 function go(){var w=V[v],a=W.concat([v]);ws.innerHTML=a.map(function(x,i){var p=i<10?w[i]:0;return'<span class="chip" style="background:color-mix(in srgb,var(--acc) '+Math.round(p/.55*52)+'%,var(--bg));text-align:center">'+x+'<br><small>'+(i<10?Math.round(p*100)+'%':'')+'</small></span>'}).join("");
 el.querySelectorAll("[data-v]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v==v)})}
@@ -193,7 +198,7 @@ el.addEventListener("click",function(e){var k=e.target.dataset&&e.target.dataset
 DEMOS.R=function(el){var D=["The Riverside Library opens at 9 am on weekdays and closes at 6 pm.","Library cards are free for residents and expire after two years.","Late books cost 10 rupees per day, up to a maximum of 200 rupees."],Q=["When does the library open?","Do library cards cost anything?","What is the late fee for books?"],q=0,st=0,SW="the a is do does what when for of at on and to up per".split(" ");
 function tk(s){return s.toLowerCase().replace(/[^a-z ]/g,"").split(" ").filter(function(w){return w&&SW.indexOf(w)<0}).map(function(w){return w.replace(/s$/,"")})}
 function sc(i){var a=tk(Q[q]),b=tk(D[i]);return a.filter(function(w){return b.indexOf(w)>-1}).length}
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="rq">Question</label><select id="rq" style="font:inherit;width:100%;padding:.5rem">'+Q.map(function(x,i){return'<option value="'+i+'">'+x+'</option>'}).join("")+'</select><p><button type="button" id="nx">Next step</button> <button type="button" class="alt" id="rs">Start over</button></p><div id="rb" aria-live="polite"></div><p class="mut">Simplified: the library and its rules are made up, search is plain keyword matching, and the answer repeats the passage. A real system uses embeddings for search and an LLM to write the answer.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><label for="rq">Question</label><select id="rq" style="font:inherit;width:100%;padding:.5rem">'+Q.map(function(x,i){return'<option value="'+i+'">'+x+'</option>'}).join("")+'</select><p><button type="button" id="nx">Next step</button> <button type="button" class="alt" id="rs">Start over</button></p><div id="rb" aria-live="polite"></div><p class="mut">Simplified: the library and its rules are made up, search is plain keyword matching, and the answer repeats the passage. A real system uses embeddings for search and an LLM to write the answer.</p>';
 var rb=el.querySelector("#rb");
 function go(){var b=sc(0),best=0,h="";[0,1,2].forEach(function(i){if(sc(i)>sc(best))best=i});
 h+='<p><strong>1. Question:</strong> '+Q[q]+'</p>';
@@ -220,14 +225,14 @@ show()};
 /* ==== demo-last.js ==== */
 window.DEMOS=window.DEMOS||{};
 DEMOS.C=function(el){var L=100,it=[],n=0;
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>Pretend this model can hold 100 tokens. Add items and watch the bar.</p><p><button type="button" data-s="10">Short message (10)</button> <button type="button" data-s="25">Long message (25)</button> <button type="button" data-s="45">Pasted document (45)</button> <button type="button" class="alt" data-s="0">Reset</button></p><div style="height:18px;border:1px solid var(--line);border-radius:6px;overflow:hidden"><div id="cf" style="height:100%;background:var(--acc)"></div></div><p id="ct" aria-live="polite"></p><ul id="cl"></ul><p class="mut">Simplified: 100 tokens is far smaller than a real window, and real systems may shorten old text instead of dropping it.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><p>Pretend this model can hold 100 tokens. Add items and watch the bar.</p><p><button type="button" data-s="10">Short message (10)</button> <button type="button" data-s="25">Long message (25)</button> <button type="button" data-s="45">Pasted document (45)</button> <button type="button" class="alt" data-s="0">Reset</button></p><div style="height:18px;border:1px solid var(--line);border-radius:6px;overflow:hidden"><div id="cf" style="height:100%;background:var(--acc)"></div></div><p id="ct" aria-live="polite"></p><ul id="cl"></ul><p class="mut">Simplified: 100 tokens is far smaller than a real window, and real systems may shorten old text instead of dropping it.</p>';
 function go(){var u=0,cut=false,v=[];for(var k=it.length-1;k>=0;k--){if(!cut&&u+it[k].s<=L){u+=it[k].s;v[k]=1}else{cut=true;v[k]=0}}
 el.querySelector("#cf").style.width=u+"%";el.querySelector("#ct").textContent=u+" of "+L+" tokens in view";
 el.querySelector("#cl").innerHTML=it.map(function(x,k){return'<li>Item '+x.n+' ('+x.s+' tokens): '+(v[k]?'in view':'<span class="mut">dropped, the model can no longer see it</span>')+'</li>'}).reverse().join("")}
 el.addEventListener("click",function(e){var s=e.target.dataset&&e.target.dataset.s;if(s===undefined)return;s=+s;if(!s){it=[];n=0}else it.push({s:s,n:++n});go()});go()};
 DEMOS.N=function(el){var X=[[0,0,0],[0,1,1],[1,0,1],[1,1,1]],w,r;function rs(){w=[0,0,0];r=0}rs();
 function o(x){return w[0]*x[0]+w[1]*x[1]+w[2]>0?1:0}
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><p>One tiny unit learns the rule &ldquo;1 if either input is 1&rdquo;. Press the button and watch the numbers change.</p><table style="border-collapse:collapse;width:100%"><thead><tr><th align="left">Input 1</th><th align="left">Input 2</th><th align="left">Wanted</th><th align="left">Unit says</th></tr></thead><tbody id="nb"></tbody></table><p id="nw" aria-live="polite"></p><p><button type="button" id="ns">Train one round</button> <button type="button" class="alt" id="nr">Reset</button></p><p class="mut">Simplified: a real network has many units in layers and uses backpropagation. This one unit uses an older, simpler update rule.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><p>One tiny unit learns the rule &ldquo;1 if either input is 1&rdquo;. Press the button and watch the numbers change.</p><table style="border-collapse:collapse;width:100%"><thead><tr><th align="left">Input 1</th><th align="left">Input 2</th><th align="left">Wanted</th><th align="left">Unit says</th></tr></thead><tbody id="nb"></tbody></table><p id="nw" aria-live="polite"></p><p><button type="button" id="ns">Train one round</button> <button type="button" class="alt" id="nr">Reset</button></p><p class="mut">Simplified: a real network has many units in layers and uses backpropagation. This one unit uses an older, simpler update rule.</p>';
 function go(){var c=0;el.querySelector("#nb").innerHTML=X.map(function(e){var y=o(e),ok=y==e[2];if(ok)c++;return'<tr><td>'+e[0]+'</td><td>'+e[1]+'</td><td>'+e[2]+'</td><td>'+y+(ok?' (right)':' (wrong)')+'</td></tr>'}).join("");
 el.querySelector("#nw").innerHTML='Round '+r+'. Weights: '+w[0].toFixed(1)+' and '+w[1].toFixed(1)+', bias '+w[2].toFixed(1)+'. <strong>'+c+' of 4 right.</strong>'+(c==4?' It has learned the rule.':'')}
 el.querySelector("#ns").onclick=function(){X.forEach(function(e){var er=e[2]-o(e);w[0]+=.5*er*e[0];w[1]+=.5*er*e[1];w[2]+=.5*er});r++;go()};
@@ -244,7 +249,7 @@ for(j=i+1;j<m;j++){var q=A[j][i]/A[i][i];for(k=i;k<m;k++)A[j][k]-=q*A[i][k];b[j]
 var c=[];for(i=m-1;i>=0;i--){var s=b[i];for(k=i+1;k<m;k++)s-=A[i][k]*c[k];c[i]=s/A[i][i]}
 return function(x){var u=x-.5,s=0;for(i=0;i<m;i++)s+=c[i]*Math.pow(u,i);return s}}
 function mse(g,P){return P.reduce(function(a,p){return a+Math.pow(g(p[0])-p[1],2)},0)/P.length}
-el.innerHTML='<h2 style="margin-top:0">Try it</h2><label for="od">Model flexibility (polynomial degree): <strong id="ov">3</strong></label><input id="od" type="range" min="1" max="9" step="1" value="3" style="width:100%"><svg viewBox="0 0 100 60" role="img" aria-label="Noisy points with a fitted curve" style="width:100%;border:1px solid var(--line);border-radius:10px"></svg><p id="oe" aria-live="polite"></p><p class="mut">Filled dots are training data. Hollow dots are new data the model never saw. Both sets are made up: a wave plus random noise.</p>';
+el.innerHTML='<h2 style="margin-top:0">Play with it</h2><label for="od">Model flexibility (polynomial degree): <strong id="ov">3</strong></label><input id="od" type="range" min="1" max="9" step="1" value="3" style="width:100%"><svg viewBox="0 0 100 60" role="img" aria-label="Noisy points with a fitted curve" style="width:100%;border:1px solid var(--line);border-radius:10px"></svg><p id="oe" aria-live="polite"></p><p class="mut">Filled dots are training data. Hollow dots are new data the model never saw. Both sets are made up: a wave plus random noise.</p>';
 function X(x){return 5+x*90}function Y(y){return 30-Math.max(-2.2,Math.min(2.2,y))*12}
 function go(){var d=+el.querySelector("#od").value,g=fit(d),s="",i,pts=[];el.querySelector("#ov").textContent=d;
 for(i=0;i<=60;i++){var x=i/60;pts.push(X(x).toFixed(1)+","+Y(g(x)).toFixed(1))}
@@ -258,25 +263,26 @@ el.querySelector("#od").oninput=go;go()};
 </script>
 
 <script>
-var T=TOPICS,N=T.length,out=document.getElementById("out"),ends=[],cn={};
+var T=TOPICS,N=T.length,out=document.getElementById("out"),ends=[];
 T.forEach(function(x,i){if(!T[i+1]||T[i+1].lv!=x.lv)ends.push(i)});
-document.getElementById("legend").innerHTML=LEVELS.map(function(n,i){return'<li><i class="lv'+(i+1)+'"></i>Level '+(i+1)+': '+n+'</li>'}).join("");
-var rows=[7,6,5,4,3,1],ys=[350,296,242,188,134,60],P=[];rows.forEach(function(n,r){var hw=.8286*(ys[r]-30)*.8;for(var k=0;k<n;k++){var t=n==1?.5:k/(n-1);if(r%2)t=1-t;P.push([300-hw+2*hw*t,ys[r]])}});
-function pt(i){return P[i]}
-var pct=[10,22,36,52];
-function mtn(){var d=AZ.done(),c=T.findIndex(function(x){return d.indexOf(x.k)<0}),s='<polygon points="20,385 300,30 580,385" fill="color-mix(in srgb,var(--acc) 12%,var(--bg))" stroke="var(--line)" stroke-width="2"/><polyline fill="none" stroke="var(--mut)" stroke-width="2" stroke-dasharray="4 4" points="'+T.map(function(x,i){return pt(i).join(",")}).join(" ")+'"/>';
-if(c>-1)s+='<circle cx="'+pt(c)[0]+'" cy="'+pt(c)[1]+'" r="19" fill="var(--acc)" stroke="var(--ink)" stroke-width="2"/>';
-ends.forEach(function(i){var p=pt(i);s+='<path d="M'+p[0]+' '+(p[1]-14)+'v-30l18 7-18 7" fill="var(--acc)" stroke="var(--ink)" stroke-width="2"/>'});
-T.forEach(function(x,i){var p=pt(i),f=d.indexOf(x.k)>-1;s+='<a href="#t-'+i+'" aria-label="Stop '+(i+1)+': '+x.t+(f?' (finished)':'')+'"><circle cx="'+p[0]+'" cy="'+p[1]+'" r="13" fill="'+(f?'var(--ink)':'color-mix(in srgb,var(--acc) '+pct[x.lv-1]+'%,var(--bg))')+'" stroke="var(--ink)" stroke-width="1.5"/><text x="'+p[0]+'" y="'+(p[1]+5)+'" font-size="14" font-weight="700" text-anchor="middle" fill="'+(f?'var(--bg)':'var(--ink)')+'">'+(i+1)+'</text></a>'});
+document.getElementById("legend").innerHTML=LEVELS.map(function(n,i){return'<li><i class="lv'+(i+1)+'"></i>Camp '+(i+1)+': '+n+'</li>'}).join("");
+var P=[[70,357],[140,350],[215,358],[290,348],[365,356],[440,346],[515,352],[490,306],[420,314],[350,304],[280,312],[210,303],[150,308],[190,266],[245,252],[320,242],[395,250],[455,236],[410,198],[345,205],[268,200],[318,164],[278,138],[335,115],[312,88],[312,58]];
+function curve(){var d="M"+P[0].join(" ");for(var i=0;i<P.length-1;i++){var a=P[i-1]||P[i],b=P[i],c=P[i+1],e=P[i+2]||c;d+=" C"+(b[0]+(c[0]-a[0])/6).toFixed(1)+" "+(b[1]+(c[1]-a[1])/6).toFixed(1)+" "+(c[0]-(e[0]-b[0])/6).toFixed(1)+" "+(c[1]-(e[1]-b[1])/6).toFixed(1)+" "+c[0]+" "+c[1]}return d}
+var pct=[8,18,30,46],BACK='<path d="M0 330L45 270L90 215L135 262L175 300" fill="color-mix(in srgb,var(--ink) 3%,var(--bg))" stroke="var(--mut)" stroke-width="1.2"/><path d="M600 300L560 235L520 180L480 220L450 250" fill="color-mix(in srgb,var(--ink) 3%,var(--bg))" stroke="var(--mut)" stroke-width="1.2"/>',
+RIDGE='<path d="M0 400L60 335L105 300L140 270L190 225L235 170L270 115L310 45L340 90L375 125L410 150L450 205L500 265L550 320L600 400Z" fill="color-mix(in srgb,var(--ink) 5%,var(--bg))" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><path d="M283 98L296 84L306 98L318 86L336 100" fill="none" stroke="var(--ink)" stroke-width="1.2"/>';
+function mtn(){var d=AZ.done(),c=T.findIndex(function(x){return d.indexOf(x.k)<0}),s=BACK+RIDGE+'<path d="'+curve()+'" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="1 6" stroke-linecap="round"/>';
+ends.forEach(function(i,n){var p=P[i];s+='<path d="M'+p[0]+' '+(p[1]-12)+'v-30h22l-6 9 6 9h-22" fill="var(--acc)" stroke="var(--ink)" stroke-width="1.3"/><text x="'+(p[0]+7)+'" y="'+(p[1]-31)+'" font-size="10" font-weight="700" fill="var(--ink)">'+(n+1)+'</text>'});
+T.forEach(function(x,i){var p=P[i],f=d.indexOf(x.k)>-1;s+='<a href="#t-'+i+'" aria-label="Stop '+(i+1)+': '+x.t+(f?' (finished)':'')+'"><title>'+(i+1)+'. '+x.t+'</title><circle cx="'+p[0]+'" cy="'+p[1]+'" r="11" fill="'+(f?'var(--ink)':'color-mix(in srgb,var(--acc) '+pct[x.lv-1]+'%,var(--bg))')+'" stroke="var(--ink)" stroke-width="1.5"/><text x="'+p[0]+'" y="'+(p[1]+4.5)+'" font-size="12" font-weight="700" text-anchor="middle" fill="'+(f?'var(--bg)':'var(--ink)')+'">'+(i+1)+'</text></a>'});
+if(c>-1){var q=P[c],x=q[0],y=q[1];s+='<g aria-hidden="true"><path d="M'+x+' '+(y-12)+'C'+(x-4)+' '+(y-20)+' '+(x-10)+' '+(y-24)+' '+(x-10)+' '+(y-32)+'A10 10 0 1 1 '+(x+10)+' '+(y-32)+'C'+(x+10)+' '+(y-24)+' '+(x+4)+' '+(y-20)+' '+x+' '+(y-12)+'Z" fill="var(--acc)" stroke="var(--ink)" stroke-width="1.5"/><circle cx="'+x+'" cy="'+(y-32)+'" r="3.5" fill="var(--bg)"/></g>'}
 document.getElementById("mtn").innerHTML=s;
-document.getElementById("prog").textContent=d.length>=N?"You reached the summit: all 26 topics finished.":"Finished "+d.length+" of "+N+(c>-1?". Next stop on the trail: "+(c+1)+", "+T[c].t+".":"")}
+document.getElementById("prog").textContent=d.length>=N?"You reached the summit: all 26 topics finished.":"Finished "+d.length+" of "+N+(c>-1?". You are here: stop "+(c+1)+", "+T[c].t+".":"")}
 var h="";T.forEach(function(x,i){var p=PAGES[x.k];
-if(i==0||T[i-1].lv!=x.lv)h+='<h2 class="level" id="lv'+x.lv+'">Level '+x.lv+': '+LEVELS[x.lv-1]+'</h2>';
-h+='<section class="topic" id="t-'+i+'"><p class="lvl">Stop '+(i+1)+' of '+N+'</p><h3>'+x.t+'</h3>';
+if(i==0||T[i-1].lv!=x.lv)h+='<div class="band" id="lv'+x.lv+'"><p class="lvl">Camp '+x.lv+'</p><h2>'+LEVELS[x.lv-1]+'</h2></div>';
+h+='<section class="topic" id="t-'+i+'"><p class="lvl"><span class="big">'+('0'+(i+1)).slice(-2)+'</span>Stop '+(i+1)+' of '+N+'</p><h3>'+x.t+'</h3>';
 if(p){h+=p.p.map(function(a){return'<p>'+a+'</p>'}).join('')+'<p class="analogy">'+p.a+'</p>';
-if(window.DEMOS&&DEMOS[x.k])h+='<div class="card" id="demo-'+x.k+'" aria-label="Interactive demo"></div>';else if(x.star)h+='<p class="mut">An interactive demo for this topic is planned.</p>';
-h+='<h4>What to remember</h4><ul>'+p.r.map(function(a){return'<li>'+a+'</li>'}).join('')+'</ul>'}
-else h+='<p>'+x.d+'</p><p class="mut">The full explanation for this stop is coming soon.</p>';
+if(window.DEMOS&&DEMOS[x.k])h+='<div class="card" id="demo-'+x.k+'" aria-label="Interactive demo"></div>';
+h+='<h4>Keep in mind</h4><ul>'+p.r.map(function(a){return'<li>'+a+'</li>'}).join('')+'</ul>'}
+else h+='<p>'+x.d+'</p>';
 h+='<p><button type="button" data-fin="'+x.k+'" aria-pressed="false"></button> <a class="back" href="#mtn">Back to the mountain</a></p></section>'});
 out.innerHTML=h;
 T.forEach(function(x){var e=document.getElementById("demo-"+x.k);if(e)DEMOS[x.k](e)});
